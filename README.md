@@ -1,6 +1,9 @@
-![npm][npm-badge]
-![downloads][downloads-badge]
-![license][license-badge]
+[![npm version][npm-badge]][npm-url]
+[![npm downloads][downloads-badge]][npm-url]
+[![license][license-badge]][license-url]
+[![TypeScript][typescript-badge]][typescript-url]
+[![React][react-badge]][react-url]
+[![Docs][docs-badge]][docs-url]
 
 # react-webcam-pro
 
@@ -66,6 +69,8 @@ npm install react-webcam-pro
 ```
 
 > **Peer dependencies:** `react`, `react-dom`, and `styled-components` (v5 or v6).
+
+📖 **Full documentation:** [amareshsm.github.io/react-webcam-pro](https://amareshsm.github.io/react-webcam-pro/)
 
 ---
 
@@ -252,6 +257,15 @@ We're actively working through the open issues inherited from the original `reac
 
 MIT — See [LICENSE](./LICENSE) for details.
 
-[downloads-badge]: https://img.shields.io/npm/dw/react-webcam-pro.svg?style=flat-square
-[npm-badge]: https://img.shields.io/npm/v/react-webcam-pro?style=flat-square
-[license-badge]: https://img.shields.io/npm/l/react-webcam-pro?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/react-webcam-pro?style=flat-square&color=cb3837&logo=npm
+[downloads-badge]: https://img.shields.io/npm/dw/react-webcam-pro?style=flat-square&color=cb3837&logo=npm
+[license-badge]: https://img.shields.io/npm/l/react-webcam-pro?style=flat-square&color=blue
+[typescript-badge]: https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square&logo=typescript&logoColor=white
+[react-badge]: https://img.shields.io/badge/React-16.8--19-61dafb?style=flat-square&logo=react&logoColor=black
+[docs-badge]: https://img.shields.io/badge/docs-live-brightgreen?style=flat-square&logo=github
+
+[npm-url]: https://www.npmjs.com/package/react-webcam-pro
+[license-url]: ./LICENSE
+[typescript-url]: https://www.typescriptlang.org/
+[react-url]: https://react.dev/
+[docs-url]: https://amareshsm.github.io/react-webcam-pro/
