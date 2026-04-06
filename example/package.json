@@ -2,7 +2,7 @@
   "name": "react-webcam-pro-example",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://amareshsm.github.io/react-webcam-pro",
+  "homepage": "https://amareshsm.github.io/react-webcam-pro-example",
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build -b gh-pages-example",
     "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
