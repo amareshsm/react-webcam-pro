@@ -31,11 +31,11 @@ const ASPECT_RATIOS: { label: string; value: 'cover' | number }[] = [
 ];
 
 const RESOLUTIONS: { label: string; w: number; h: number }[] = [
-  { label: '4K (3840×2160)', w: 3840, h: 2160 },
-  { label: 'Full HD (1920×1080)', w: 1920, h: 1080 },
-  { label: 'HD (1280×720)', w: 1280, h: 720 },
-  { label: 'VGA (640×480)', w: 640, h: 480 },
-  { label: 'QVGA (320×240)', w: 320, h: 240 },
+  { label: '4K (3840x2160)', w: 3840, h: 2160 },
+  { label: 'Full HD (1920x1080)', w: 1920, h: 1080 },
+  { label: 'HD (1280x720)', w: 1280, h: 720 },
+  { label: 'VGA (640x480)', w: 640, h: 480 },
+  { label: 'QVGA (320x240)', w: 320, h: 240 },
 ];
 
 /* ───────── App ───────── */
@@ -48,8 +48,13 @@ const App: React.FC = () => {
   const [photo, setPhoto] = useState<string | null>(null);
   const [torchOn, setTorchOn] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
-  const [showPanel, setShowPanel] = useState(true);
+  const [showPanel, setShowPanel] = useState(false);
   const [showPhoto, setShowPhoto] = useState(false);
+
+  /* Start with panel open only on desktop */
+  useEffect(() => {
+    if (window.innerWidth >= 768) setShowPanel(true);
+  }, []);
 
   useEffect(() => {
     (async () => {
@@ -76,6 +81,7 @@ const App: React.FC = () => {
     });
     setPhoto(result as string);
     setShowPhoto(true);
+    setShowPanel(false);
   }, [config.mirrorPhoto]);
 
   const handleSwitchCamera = useCallback(() => {
@@ -105,18 +111,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={styles.layout}>
-      {/* ── Camera Area ── */}
-      <div style={styles.cameraArea}>
+    <div className="app-layout">
+      {/* Camera Area */}
+      <div className="camera-area">
         {showPhoto && photo ? (
-          <div style={styles.photoPreview}>
-            <img src={photo} alt="Captured" style={styles.photoImg} />
-            <div style={styles.photoActions}>
-              <button style={styles.photoBtn} onClick={handleDownload}>
-                💾 Download
+          <div className="photo-preview">
+            <img src={photo} alt="Captured" className="photo-img" />
+            <div className="photo-actions">
+              <button className="photo-btn" onClick={handleDownload}>
+                Save
               </button>
-              <button style={styles.photoBtn} onClick={() => setShowPhoto(false)}>
-                ✕ Close
+              <button className="photo-btn" onClick={() => setShowPhoto(false)}>
+                Close
               </button>
             </div>
           </div>
@@ -131,185 +137,189 @@ const App: React.FC = () => {
               numberOfCamerasCallback={setNumberOfCameras}
               videoReadyCallback={() => setVideoReady(true)}
               errorMessages={{
-                noCameraAccessible: '📷 No camera found. Please connect a camera and refresh.',
-                permissionDenied: '🔒 Camera permission denied. Please allow access and refresh.',
-                switchCamera: '⚠️ Cannot switch — only one camera available.',
-                canvas: '⚠️ Canvas not supported in this browser.',
+                noCameraAccessible: 'No camera found. Please connect a camera and refresh.',
+                permissionDenied: 'Camera permission denied. Please allow access and refresh.',
+                switchCamera: 'Cannot switch - only one camera available.',
+                canvas: 'Canvas not supported in this browser.',
               }}
             />
 
             {/* Floating action bar */}
-            <div style={styles.actionBar}>
+            <div className="action-bar">
               <button
-                style={styles.actionBtn}
+                className="action-btn"
                 onClick={handleSwitchCamera}
                 disabled={numberOfCameras < 2}
                 title="Switch Camera"
               >
-                🔄
+                <span className="action-icon">&#x1F504;</span>
               </button>
-              <button style={styles.captureBtn} onClick={handleTakePhoto} title="Take Photo">
-                📸
+              <button className="capture-btn" onClick={handleTakePhoto} title="Take Photo">
+                <span className="action-icon">&#x1F4F8;</span>
               </button>
               {camera.current?.torchSupported && (
                 <button
-                  style={{
-                    ...styles.actionBtn,
-                    ...(torchOn ? styles.actionBtnActive : {}),
-                  }}
+                  className={`action-btn${torchOn ? ' active' : ''}`}
                   onClick={handleToggleTorch}
                   title="Toggle Torch"
                 >
-                  🔦
+                  <span className="action-icon">&#x1F526;</span>
                 </button>
               )}
               <button
-                style={styles.actionBtn}
+                className={`action-btn${showPanel ? ' active' : ''}`}
                 onClick={() => setShowPanel((p) => !p)}
                 title="Toggle Settings"
               >
-                ⚙️
+                <span className="action-icon">&#x2699;&#xFE0F;</span>
               </button>
             </div>
 
             {/* Status badge */}
-            <div style={styles.statusBadge}>
+            <div className="status-badge">
               <span
-                style={{
-                  ...styles.statusDot,
-                  backgroundColor: videoReady ? '#00c853' : '#ff5252',
-                }}
+                className="status-dot"
+                style={{ backgroundColor: videoReady ? '#00c853' : '#ff5252' }}
               />
-              {videoReady ? 'Live' : 'Starting…'}
-              {numberOfCameras > 0 && ` · ${numberOfCameras} camera${numberOfCameras > 1 ? 's' : ''}`}
+              {videoReady ? 'Live' : 'Starting...'}
+              {numberOfCameras > 0 && ` | ${numberOfCameras} cam${numberOfCameras > 1 ? 's' : ''}`}
             </div>
           </>
         )}
       </div>
 
-      {/* ── Settings Panel ── */}
-      {showPanel && (
-        <div style={styles.panel}>
-          <div style={styles.panelHeader}>
-            <h2 style={styles.panelTitle}>⚙️ Configuration</h2>
-            <p style={styles.panelSubtitle}>
-              Tweak camera settings below — changes apply in real-time.
-            </p>
+      {/* Backdrop for mobile panel */}
+      {showPanel && <div className="panel-backdrop" onClick={() => setShowPanel(false)} />}
+
+      {/* Settings Panel */}
+      <div className={`panel${showPanel ? ' panel--open' : ' panel--closed'}`}>
+        {/* Drag handle (visual cue) */}
+        <div className="panel-handle-bar" onClick={() => setShowPanel(false)}>
+          <div className="panel-handle" />
+        </div>
+
+        <div className="panel-header">
+          <div className="panel-header-row">
+            <h2 className="panel-title">Configuration</h2>
+            <button className="panel-close-btn" onClick={() => setShowPanel(false)}>
+              &#x2715;
+            </button>
           </div>
+          <p className="panel-subtitle">
+            Tweak camera settings &mdash; changes apply in real-time.
+          </p>
+        </div>
 
-          <div style={styles.panelBody}>
-            {/* Facing Mode */}
-            <SettingGroup label="Facing Mode">
-              <div style={styles.btnGroup}>
-                {(['user', 'environment'] as const).map((mode) => (
-                  <button
-                    key={mode}
-                    style={{
-                      ...styles.toggleBtn,
-                      ...(config.facingMode === mode ? styles.toggleBtnActive : {}),
-                    }}
-                    onClick={() => updateConfig({ facingMode: mode })}
-                  >
-                    {mode === 'user' ? '🤳 User' : '🌍 Environment'}
-                  </button>
-                ))}
-              </div>
-            </SettingGroup>
-
-            {/* Aspect Ratio */}
-            <SettingGroup label="Aspect Ratio">
-              <select
-                style={styles.select}
-                value={typeof config.aspectRatio === 'number' ? config.aspectRatio.toString() : 'cover'}
-                onChange={(e) =>
-                  updateConfig({
-                    aspectRatio: e.target.value === 'cover' ? 'cover' : parseFloat(e.target.value),
-                  })
-                }
-              >
-                {ASPECT_RATIOS.map((ar) => (
-                  <option key={ar.label} value={typeof ar.value === 'number' ? ar.value.toString() : 'cover'}>
-                    {ar.label}
-                  </option>
-                ))}
-              </select>
-            </SettingGroup>
-
-            {/* Resolution */}
-            <SettingGroup label="Resolution">
-              <select
-                style={styles.select}
-                value={`${config.width}x${config.height}`}
-                onChange={(e) => {
-                  const [w, h] = e.target.value.split('x').map(Number);
-                  updateConfig({ width: w, height: h });
-                }}
-              >
-                {RESOLUTIONS.map((r) => (
-                  <option key={r.label} value={`${r.w}x${r.h}`}>
-                    {r.label}
-                  </option>
-                ))}
-              </select>
-            </SettingGroup>
-
-            {/* Frame Rate */}
-            <SettingGroup label={`Frame Rate: ${config.frameRate} fps`}>
-              <input
-                type="range"
-                min={5}
-                max={60}
-                step={5}
-                value={config.frameRate}
-                onChange={(e) => updateConfig({ frameRate: parseInt(e.target.value, 10) })}
-                style={styles.range}
-              />
-              <div style={styles.rangeLabels}>
-                <span>5</span>
-                <span>30</span>
-                <span>60</span>
-              </div>
-            </SettingGroup>
-
-            {/* Camera Device */}
-            {devices.length > 0 && (
-              <SettingGroup label="Camera Device">
-                <select
-                  style={styles.select}
-                  value={config.deviceId || ''}
-                  onChange={(e) => updateConfig({ deviceId: e.target.value || undefined })}
+        <div className="panel-body">
+          {/* Facing Mode */}
+          <SettingGroup label="Facing Mode">
+            <div className="btn-group">
+              {(['user', 'environment'] as const).map((mode) => (
+                <button
+                  key={mode}
+                  className={`toggle-btn${config.facingMode === mode ? ' active' : ''}`}
+                  onClick={() => updateConfig({ facingMode: mode })}
                 >
-                  <option value="">Auto-detect</option>
-                  {devices.map((d) => (
-                    <option key={d.deviceId} value={d.deviceId}>
-                      {d.label || `Camera ${d.deviceId.slice(0, 8)}…`}
-                    </option>
-                  ))}
-                </select>
-              </SettingGroup>
-            )}
+                  {mode === 'user' ? 'User' : 'Environment'}
+                </button>
+              ))}
+            </div>
+          </SettingGroup>
 
-            {/* Mirror Photo */}
-            <SettingGroup label="Mirror Captured Photo">
-              <label style={styles.switchLabel}>
-                <input
-                  type="checkbox"
-                  checked={config.mirrorPhoto}
-                  onChange={(e) => updateConfig({ mirrorPhoto: e.target.checked })}
-                  style={styles.checkbox}
-                />
-                <span>{config.mirrorPhoto ? '✅ Mirrored' : '➡️ Normal'}</span>
-              </label>
-              <p style={styles.hint}>
-                Tip: Enable for selfies so text and faces aren't flipped.
-              </p>
+          {/* Aspect Ratio */}
+          <SettingGroup label="Aspect Ratio">
+            <select
+              className="setting-select"
+              value={typeof config.aspectRatio === 'number' ? config.aspectRatio.toString() : 'cover'}
+              onChange={(e) =>
+                updateConfig({
+                  aspectRatio: e.target.value === 'cover' ? 'cover' : parseFloat(e.target.value),
+                })
+              }
+            >
+              {ASPECT_RATIOS.map((ar) => (
+                <option key={ar.label} value={typeof ar.value === 'number' ? ar.value.toString() : 'cover'}>
+                  {ar.label}
+                </option>
+              ))}
+            </select>
+          </SettingGroup>
+
+          {/* Resolution */}
+          <SettingGroup label="Resolution">
+            <select
+              className="setting-select"
+              value={`${config.width}x${config.height}`}
+              onChange={(e) => {
+                const [w, h] = e.target.value.split('x').map(Number);
+                updateConfig({ width: w, height: h });
+              }}
+            >
+              {RESOLUTIONS.map((r) => (
+                <option key={r.label} value={`${r.w}x${r.h}`}>
+                  {r.label}
+                </option>
+              ))}
+            </select>
+          </SettingGroup>
+
+          {/* Frame Rate */}
+          <SettingGroup label={`Frame Rate: ${config.frameRate} fps`}>
+            <input
+              type="range"
+              min={5}
+              max={60}
+              step={5}
+              value={config.frameRate}
+              onChange={(e) => updateConfig({ frameRate: parseInt(e.target.value, 10) })}
+              className="setting-range"
+            />
+            <div className="range-labels">
+              <span>5</span>
+              <span>30</span>
+              <span>60</span>
+            </div>
+          </SettingGroup>
+
+          {/* Camera Device */}
+          {devices.length > 0 && (
+            <SettingGroup label="Camera Device">
+              <select
+                className="setting-select"
+                value={config.deviceId || ''}
+                onChange={(e) => updateConfig({ deviceId: e.target.value || undefined })}
+              >
+                <option value="">Auto-detect</option>
+                {devices.map((d) => (
+                  <option key={d.deviceId} value={d.deviceId}>
+                    {d.label || `Camera ${d.deviceId.slice(0, 8)}...`}
+                  </option>
+                ))}
+              </select>
             </SettingGroup>
+          )}
 
-            <hr style={styles.divider} />
+          {/* Mirror Photo */}
+          <SettingGroup label="Mirror Captured Photo">
+            <label className="switch-label">
+              <input
+                type="checkbox"
+                checked={config.mirrorPhoto}
+                onChange={(e) => updateConfig({ mirrorPhoto: e.target.checked })}
+                className="setting-checkbox"
+              />
+              <span>{config.mirrorPhoto ? 'Mirrored' : 'Normal'}</span>
+            </label>
+            <p className="hint">
+              Tip: Enable for selfies so text and faces are not flipped.
+            </p>
+          </SettingGroup>
 
-            {/* Live Code Preview */}
-            <SettingGroup label="📋 Generated Props">
-              <pre style={styles.codeBlock}>
+          <hr className="setting-divider" />
+
+          {/* Live Code Preview */}
+          <SettingGroup label="Generated Props">
+            <pre className="code-block">
 {`<Camera
   facingMode="${config.facingMode}"
   aspectRatio={${typeof config.aspectRatio === 'number' ? config.aspectRatio.toFixed(4) : '"cover"'}}
@@ -319,34 +329,33 @@ const App: React.FC = () => {
     frameRate: { ideal: ${config.frameRate} },
   }}${config.mirrorPhoto ? '\n  // takePhoto({ mirror: true })' : ''}${config.deviceId ? `\n  videoSourceDeviceId="${config.deviceId}"` : ''}
 />`}
-              </pre>
-            </SettingGroup>
+            </pre>
+          </SettingGroup>
 
-            {/* Reset */}
-            <button
-              style={styles.resetBtn}
-              onClick={() => {
-                setConfig(DEFAULT_CONFIG);
-                setVideoReady(false);
-              }}
-            >
-              🔄 Reset to Defaults
-            </button>
-          </div>
-
-          <div style={styles.panelFooter}>
-            <a href="https://amareshsm.github.io/react-webcam-pro/" target="_blank" rel="noopener noreferrer" style={styles.footerLink}>
-              📖 Docs
-            </a>
-            <a href="https://www.npmjs.com/package/react-webcam-pro" target="_blank" rel="noopener noreferrer" style={styles.footerLink}>
-              📦 npm
-            </a>
-            <a href="https://github.com/amareshsm/react-webcam-pro" target="_blank" rel="noopener noreferrer" style={styles.footerLink}>
-              ⭐ GitHub
-            </a>
-          </div>
+          {/* Reset */}
+          <button
+            className="reset-btn"
+            onClick={() => {
+              setConfig(DEFAULT_CONFIG);
+              setVideoReady(false);
+            }}
+          >
+            Reset to Defaults
+          </button>
         </div>
-      )}
+
+        <div className="panel-footer">
+          <a href="https://amareshsm.github.io/react-webcam-pro/" target="_blank" rel="noopener noreferrer" className="footer-link">
+            Docs
+          </a>
+          <a href="https://www.npmjs.com/package/react-webcam-pro" target="_blank" rel="noopener noreferrer" className="footer-link">
+            npm
+          </a>
+          <a href="https://github.com/amareshsm/react-webcam-pro" target="_blank" rel="noopener noreferrer" className="footer-link">
+            GitHub
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
@@ -354,271 +363,10 @@ const App: React.FC = () => {
 /* ───────── Sub-components ───────── */
 
 const SettingGroup: React.FC<{ label: string; children: React.ReactNode }> = ({ label, children }) => (
-  <div style={styles.settingGroup}>
-    <label style={styles.label}>{label}</label>
+  <div className="setting-group">
+    <label className="setting-label">{label}</label>
     {children}
   </div>
 );
-
-/* ───────── Styles ───────── */
-const styles: Record<string, React.CSSProperties> = {
-  layout: {
-    display: 'flex',
-    height: '100vh',
-    width: '100vw',
-    overflow: 'hidden',
-    background: '#0f0f0f',
-  },
-  cameraArea: {
-    flex: 1,
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
-    background: '#000',
-  },
-  actionBar: {
-    position: 'absolute',
-    bottom: 24,
-    left: '50%',
-    transform: 'translateX(-50%)',
-    display: 'flex',
-    gap: 16,
-    alignItems: 'center',
-    padding: '12px 24px',
-    borderRadius: 999,
-    background: 'rgba(0,0,0,0.6)',
-    backdropFilter: 'blur(10px)',
-    zIndex: 10,
-  },
-  actionBtn: {
-    width: 48,
-    height: 48,
-    borderRadius: '50%',
-    border: '2px solid rgba(255,255,255,0.2)',
-    background: 'rgba(255,255,255,0.1)',
-    fontSize: 20,
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'all 0.2s',
-    color: '#fff',
-  },
-  actionBtnActive: {
-    background: 'rgba(108,99,255,0.5)',
-    borderColor: '#6c63ff',
-  },
-  captureBtn: {
-    width: 64,
-    height: 64,
-    borderRadius: '50%',
-    border: '3px solid #fff',
-    background: 'rgba(255,255,255,0.15)',
-    fontSize: 28,
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'all 0.2s',
-    color: '#fff',
-  },
-  statusBadge: {
-    position: 'absolute',
-    top: 16,
-    left: 16,
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8,
-    padding: '6px 14px',
-    borderRadius: 999,
-    background: 'rgba(0,0,0,0.6)',
-    backdropFilter: 'blur(10px)',
-    fontSize: 13,
-    color: '#e8e8e8',
-    zIndex: 10,
-  },
-  statusDot: {
-    width: 8,
-    height: 8,
-    borderRadius: '50%',
-    display: 'inline-block',
-  },
-  panel: {
-    width: 340,
-    height: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    background: '#1a1a2e',
-    borderLeft: '1px solid #333355',
-    overflow: 'hidden',
-  },
-  panelHeader: {
-    padding: '20px 20px 12px',
-    borderBottom: '1px solid #333355',
-  },
-  panelTitle: {
-    fontSize: 18,
-    fontWeight: 700,
-    margin: 0,
-  },
-  panelSubtitle: {
-    fontSize: 12,
-    color: '#999',
-    marginTop: 4,
-  },
-  panelBody: {
-    flex: 1,
-    overflowY: 'auto',
-    padding: 20,
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 18,
-  },
-  panelFooter: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: 20,
-    padding: '12px 20px',
-    borderTop: '1px solid #333355',
-    fontSize: 13,
-  },
-  footerLink: {
-    color: '#6c63ff',
-    textDecoration: 'none',
-  },
-  settingGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 6,
-  },
-  label: {
-    fontSize: 13,
-    fontWeight: 600,
-    color: '#ccc',
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
-  select: {
-    width: '100%',
-    padding: '8px 10px',
-    borderRadius: 6,
-    border: '1px solid #333355',
-    background: '#222240',
-    color: '#e8e8e8',
-    fontSize: 14,
-    outline: 'none',
-  },
-  range: {
-    width: '100%',
-    accentColor: '#6c63ff',
-  },
-  rangeLabels: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    fontSize: 11,
-    color: '#666',
-  },
-  btnGroup: {
-    display: 'flex',
-    gap: 8,
-  },
-  toggleBtn: {
-    flex: 1,
-    padding: '8px 12px',
-    borderRadius: 6,
-    border: '1px solid #333355',
-    background: '#222240',
-    color: '#e8e8e8',
-    fontSize: 13,
-    cursor: 'pointer',
-    transition: 'all 0.2s',
-  },
-  toggleBtnActive: {
-    background: '#6c63ff',
-    borderColor: '#6c63ff',
-    color: '#fff',
-    fontWeight: 600,
-  },
-  switchLabel: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: 8,
-    fontSize: 14,
-    cursor: 'pointer',
-  },
-  checkbox: {
-    width: 18,
-    height: 18,
-    accentColor: '#6c63ff',
-    cursor: 'pointer',
-  },
-  hint: {
-    fontSize: 11,
-    color: '#777',
-    marginTop: 2,
-  },
-  divider: {
-    border: 'none',
-    borderTop: '1px solid #333355',
-    margin: '4px 0',
-  },
-  codeBlock: {
-    background: '#0f0f1a',
-    border: '1px solid #333355',
-    borderRadius: 6,
-    padding: 12,
-    fontSize: 12,
-    lineHeight: 1.5,
-    overflow: 'auto',
-    color: '#a5d6ff',
-    fontFamily: '"Fira Code", "Consolas", monospace',
-    whiteSpace: 'pre-wrap',
-    margin: 0,
-  },
-  resetBtn: {
-    padding: '10px 16px',
-    borderRadius: 6,
-    border: '1px solid #333355',
-    background: '#222240',
-    color: '#e8e8e8',
-    fontSize: 13,
-    cursor: 'pointer',
-    transition: 'all 0.2s',
-    textAlign: 'center',
-  },
-  photoPreview: {
-    position: 'absolute',
-    inset: 0,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    background: '#000',
-    zIndex: 20,
-    gap: 16,
-  },
-  photoImg: {
-    maxWidth: '95%',
-    maxHeight: '80%',
-    objectFit: 'contain',
-    borderRadius: 8,
-  },
-  photoActions: {
-    display: 'flex',
-    gap: 12,
-  },
-  photoBtn: {
-    padding: '10px 20px',
-    borderRadius: 8,
-    border: '1px solid rgba(255,255,255,0.2)',
-    background: 'rgba(255,255,255,0.1)',
-    color: '#e8e8e8',
-    fontSize: 14,
-    cursor: 'pointer',
-    backdropFilter: 'blur(10px)',
-  },
-};
 
 export default App;
