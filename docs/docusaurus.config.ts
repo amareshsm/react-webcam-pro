@@ -15,6 +15,7 @@ const config: Config = {
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
+  trailingSlash: false,
 
   headTags: [
     {
