@@ -21,7 +21,7 @@ Thumbs.db
 
 # Example app
 example/build/
-example/package-lock.json
+example/dist/
 
 # Docs site
 docs/build/
