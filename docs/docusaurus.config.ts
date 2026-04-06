@@ -16,6 +16,30 @@ const config: Config = {
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
 
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'keywords',
+        content: 'react-webcam-pro, react-camera-pro, react-camera-web, react webcam, react camera, camera component, webcam component, react19 camera, iOS camera react, Android camera react, getUserMedia react, webRTC react',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'description',
+        content: 'react-webcam-pro — Universal Camera component for React. Community-maintained fork of react-camera-pro with React 19 support, styled-components v6 compatibility, and bug fixes.',
+      },
+    },
+    {
+      tagName: 'meta',
+      attributes: {
+        property: 'og:description',
+        content: 'Community-maintained fork of react-camera-pro. Supports React 16–19, styled-components v5/v6, fully backward compatible.',
+      },
+    },
+  ],
+
   markdown: {
     hooks: {
       onBrokenMarkdownLinks: 'warn',

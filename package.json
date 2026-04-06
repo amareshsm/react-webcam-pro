@@ -15,7 +15,12 @@
     "mobile",
     "webRTC",
     "camera-pro",
-    "react-camera"
+    "react-camera",
+    "react-camera-pro",
+    "react-webcam",
+    "react-camera-web",
+    "getUserMedia",
+    "mediaDevices"
   ],
   "repository": {
     "url": "https://github.com/amareshsm/react-webcam-pro",
