@@ -1,12 +1,12 @@
 ---
 sidebar_position: 100
 title: Community & Support
-description: Get help, report bugs, and request features for react-camera-web.
+description: Get help, report bugs, and request features for react-webcam-pro.
 ---
 
 # Community & Support
 
-`react-camera-web` is a community-maintained fork of [`react-camera-pro`](https://github.com/purple-technology/react-camera-pro). We're committed to keeping this package actively maintained and responsive to the community's needs.
+`react-webcam-pro` is a community-maintained fork of [`react-camera-pro`](https://github.com/purple-technology/react-camera-pro). We're committed to keeping this package actively maintained and responsive to the community's needs.
 
 ## 🔧 Open Issues
 
@@ -16,7 +16,7 @@ Remaining issues are being triaged and fixed on a rolling basis.
 
 ## 🚨 Need Something Fixed Urgently?
 
-If you encounter a bug or need a feature that's blocking your work, please **[create an issue](https://github.com/amareshsm/react-camera-web/issues/new)** in our repository. Issues reported directly to us will be taken up on **high priority** and addressed quickly.
+If you encounter a bug or need a feature that's blocking your work, please **[create an issue](https://github.com/amareshsm/react-webcam-pro/issues/new)** in our repository. Issues reported directly to us will be taken up on **high priority** and addressed quickly.
 
 ## How to Report
 
@@ -31,11 +31,11 @@ When creating an issue, please include:
 
 | Resource | Link |
 | --- | --- |
-| 🐛 Report a Bug | [Create an Issue](https://github.com/amareshsm/react-camera-web/issues/new) |
-| 💡 Request a Feature | [Create an Issue](https://github.com/amareshsm/react-camera-web/issues/new) |
-| 💬 Discussions | [GitHub Discussions](https://github.com/amareshsm/react-camera-web/discussions) |
-| 📦 npm | [react-camera-web](https://www.npmjs.com/package/react-camera-web) |
-| 📖 Source Code | [GitHub Repository](https://github.com/amareshsm/react-camera-web) |
+| 🐛 Report a Bug | [Create an Issue](https://github.com/amareshsm/react-webcam-pro/issues/new) |
+| 💡 Request a Feature | [Create an Issue](https://github.com/amareshsm/react-webcam-pro/issues/new) |
+| 💬 Discussions | [GitHub Discussions](https://github.com/amareshsm/react-webcam-pro/discussions) |
+| 📦 npm | [react-webcam-pro](https://www.npmjs.com/package/react-webcam-pro) |
+| 📖 Source Code | [GitHub Repository](https://github.com/amareshsm/react-webcam-pro) |
 
 ## 🙏 Acknowledgements
 

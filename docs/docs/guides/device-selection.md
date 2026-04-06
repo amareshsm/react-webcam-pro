@@ -73,7 +73,7 @@ In the original `react-camera-pro`, the auto-detection logic for environment cam
 
 ```tsx
 import { useRef, useState, useEffect } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const App = () => {
   const cameraRef = useRef<CameraRef>(null);

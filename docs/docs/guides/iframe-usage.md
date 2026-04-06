@@ -1,7 +1,7 @@
 ---
 sidebar_position: 7
 title: Using in an iframe
-description: How to use react-camera-web inside an iframe.
+description: How to use react-webcam-pro inside an iframe.
 ---
 
 # Using in an iframe

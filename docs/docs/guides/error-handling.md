@@ -6,7 +6,7 @@ description: How to handle camera errors and customize error messages.
 
 # Error Handling
 
-Camera access can fail for many reasons — missing permissions, no camera hardware, unsupported browsers, etc. `react-camera-web` handles these gracefully and lets you customize the user experience.
+Camera access can fail for many reasons — missing permissions, no camera hardware, unsupported browsers, etc. `react-webcam-pro` handles these gracefully and lets you customize the user experience.
 
 ## Built-in Error Messages
 

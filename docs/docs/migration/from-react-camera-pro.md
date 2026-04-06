@@ -1,14 +1,14 @@
 ---
 sidebar_position: 1
 title: Migrating from react-camera-pro
-description: Step-by-step guide for migrating from react-camera-pro to react-camera-web.
+description: Step-by-step guide for migrating from react-camera-pro to react-webcam-pro.
 ---
 
 # Migrating from react-camera-pro
 
-`react-camera-web` is a community-maintained fork of [`react-camera-pro`](https://github.com/purple-technology/react-camera-pro) by [Purple Technology](https://github.com/purple-technology). The original package has not been actively maintained for over 2 years, leaving many users with unresolved issues.
+`react-webcam-pro` is a community-maintained fork of [`react-camera-pro`](https://github.com/purple-technology/react-camera-pro) by [Purple Technology](https://github.com/purple-technology). The original package has not been actively maintained for over 2 years, leaving many users with unresolved issues.
 
-**`react-camera-web` is a drop-in replacement** — the API is fully backward compatible. This guide walks you through the migration step by step.
+**`react-webcam-pro` is a drop-in replacement** — the API is fully backward compatible. This guide walks you through the migration step by step.
 
 ---
 
@@ -16,7 +16,7 @@ description: Step-by-step guide for migrating from react-camera-pro to react-cam
 
 The original `react-camera-pro` has several unresolved issues:
 
-| Issue | Status in react-camera-pro | Status in react-camera-web |
+| Issue | Status in react-camera-pro | Status in react-webcam-pro |
 |-------|---------------------------|---------------------------|
 | React 19 support | ❌ [Not supported](https://github.com/purple-technology/react-camera-pro/issues/70) | ✅ Fixed |
 | styled-components v6 DOM warnings | ❌ [Open issue](https://github.com/purple-technology/react-camera-pro/issues/48) | ✅ Fixed |
@@ -36,21 +36,21 @@ The original `react-camera-pro` has several unresolved issues:
 npm uninstall react-camera-pro
 
 # Install the new package
-npm install react-camera-web
+npm install react-webcam-pro
 ```
 
 Or with yarn:
 
 ```bash
 yarn remove react-camera-pro
-yarn add react-camera-web
+yarn add react-webcam-pro
 ```
 
 Or with pnpm:
 
 ```bash
 pnpm remove react-camera-pro
-pnpm add react-camera-web
+pnpm add react-webcam-pro
 ```
 
 ---
@@ -61,13 +61,13 @@ This is the **only required change**. Update your import statements:
 
 ```diff
 - import { Camera, CameraType } from 'react-camera-pro';
-+ import { Camera, CameraType } from 'react-camera-web';
++ import { Camera, CameraType } from 'react-webcam-pro';
 ```
 
 If you have multiple files, you can do a find-and-replace across your project:
 
 - **Find:** `react-camera-pro`
-- **Replace:** `react-camera-web`
+- **Replace:** `react-webcam-pro`
 
 ---
 
@@ -86,9 +86,9 @@ While not required, here are some improvements you can make now:
 `CameraType` is still exported for backward compatibility, but `CameraRef` is the recommended type:
 
 ```diff
-- import { Camera, CameraType } from 'react-camera-web';
+- import { Camera, CameraType } from 'react-webcam-pro';
 - const camera = useRef<CameraType>(null);
-+ import { Camera, CameraRef } from 'react-camera-web';
++ import { Camera, CameraRef } from 'react-webcam-pro';
 + const camera = useRef<CameraRef>(null);
 ```
 
@@ -129,7 +129,7 @@ You can now style the camera container directly:
 
 ### Props
 
-| Prop | react-camera-pro | react-camera-web | Notes |
+| Prop | react-camera-pro | react-webcam-pro | Notes |
 |------|-----------------|-----------------|-------|
 | `facingMode` | ✅ Optional | ✅ Optional | No change |
 | `aspectRatio` | ✅ Optional | ✅ Optional | No change |
@@ -142,7 +142,7 @@ You can now style the camera container directly:
 
 ### Ref Methods
 
-| Method/Property | react-camera-pro | react-camera-web | Notes |
+| Method/Property | react-camera-pro | react-webcam-pro | Notes |
 |----------------|-----------------|-----------------|-------|
 | `takePhoto(type?)` | ✅ | ✅ | No change |
 | `switchCamera()` | ✅ | ✅ | No change |
@@ -152,7 +152,7 @@ You can now style the camera container directly:
 
 ### Exports
 
-| Export | react-camera-pro | react-camera-web | Notes |
+| Export | react-camera-pro | react-webcam-pro | Notes |
 |--------|-----------------|-----------------|-------|
 | `Camera` | ✅ | ✅ | No change |
 | `CameraType` | ✅ | ✅ (deprecated) | Kept as alias for `CameraRef` |
@@ -161,7 +161,7 @@ You can now style the camera container directly:
 
 ### Peer Dependencies
 
-| Dependency | react-camera-pro | react-camera-web |
+| Dependency | react-camera-pro | react-webcam-pro |
 |-----------|-----------------|-----------------|
 | `react` | `^18.3.1` | `^16.8.0 \|\| ^17.0.0 \|\| ^18.0.0 \|\| ^19.0.0` |
 | `react-dom` | `^18.3.1` | `^16.8.0 \|\| ^17.0.0 \|\| ^18.0.0 \|\| ^19.0.0` |
@@ -182,7 +182,7 @@ By migrating, you automatically get fixes for these known issues:
 Warning: React does not recognize the `mirrored` prop on a DOM element.
 ```
 
-**Fix:** `react-camera-web` uses styled-components [transient props](https://styled-components.com/docs/api#transient-props) (`$mirrored`, `$aspectRatio`) that don't get passed to the DOM.
+**Fix:** `react-webcam-pro` uses styled-components [transient props](https://styled-components.com/docs/api#transient-props) (`$mirrored`, `$aspectRatio`) that don't get passed to the DOM.
 
 ### `videoSourceDeviceId` Ignored in Environment Mode
 
@@ -196,7 +196,7 @@ When using `facingMode="environment"`, the component would auto-detect environme
 
 `react-camera-pro` included fallback code for `navigator.getUserMedia`, `navigator.webkitGetUserMedia`, `navigator.mozGetUserMedia`, and `navigator.msGetUserMedia` — all of which are long-deprecated browser APIs.
 
-`react-camera-web` uses only the modern `navigator.mediaDevices.getUserMedia` API.
+`react-webcam-pro` uses only the modern `navigator.mediaDevices.getUserMedia` API.
 
 ---
 
@@ -221,7 +221,7 @@ If you see peer dependency warnings, ensure your `react`, `react-dom`, and `styl
 
 ## Original Package Credits
 
-`react-camera-web` is built on the work of:
+`react-webcam-pro` is built on the work of:
 
 - [**Martin Urban**](https://github.com/murbanowicz) — Original author of react-camera-pro
 - [**Purple Technology**](https://github.com/purple-technology) — Original maintainers

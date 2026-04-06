@@ -1,6 +1,6 @@
-# react-camera-web — Example App
+# react-webcam-pro — Example App
 
-This is a demo application showcasing the [`react-camera-web`](https://github.com/amareshsm/react-camera-web) package.
+This is a demo application showcasing the [`react-webcam-pro`](https://github.com/amareshsm/react-webcam-pro) package.
 
 ## Running locally
 

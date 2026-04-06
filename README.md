@@ -2,7 +2,7 @@
 ![downloads][downloads-badge]
 ![license][license-badge]
 
-# react-camera-web
+# react-webcam-pro
 
 Universal Camera component for React.
 
@@ -16,7 +16,7 @@ See [browser compatibility](http://caniuse.com/#feat=stream).
 
 ## 🔀 Fork Notice
 
-**`react-camera-web`** is a community-maintained fork of [`react-camera-pro`](https://github.com/purple-technology/react-camera-pro) by [Purple Technology](https://github.com/purple-technology).
+**`react-webcam-pro`** is a community-maintained fork of [`react-camera-pro`](https://github.com/purple-technology/react-camera-pro) by [Purple Technology](https://github.com/purple-technology).
 
 The original package has not been actively maintained for over 2 years, leaving many users with unresolved issues — including React 19 compatibility, styled-components warnings, and various bug fixes. Many of us personally needed these updates, so we decided to fork the project, fix the outstanding issues, and continue maintaining it for the community.
 
@@ -30,7 +30,7 @@ A huge **thank you** to the original creators and contributors of `react-camera-
 
 ---
 
-## ✨ What's New in `react-camera-web`
+## ✨ What's New in `react-webcam-pro`
 
 - ✅ **React 19 support** — Works with React 16.8+, 17, 18, and 19
 - ✅ **styled-components v6 support** — Compatible with both v5 and v6
@@ -62,7 +62,7 @@ A huge **thank you** to the original creators and contributors of `react-camera-
 ## Installation
 
 ```bash
-npm install react-camera-web
+npm install react-webcam-pro
 ```
 
 > **Peer dependencies:** `react`, `react-dom`, and `styled-components` (v5 or v6).
@@ -73,7 +73,7 @@ npm install react-camera-web
 
 ```tsx
 import React, { useState, useRef } from "react";
-import { Camera } from "react-camera-web";
+import { Camera } from "react-webcam-pro";
 
 const App = () => {
   const camera = useRef(null);
@@ -188,16 +188,16 @@ const App = () => {
 
 ## Migrating from `react-camera-pro`
 
-1. **Install** `react-camera-web`:
+1. **Install** `react-webcam-pro`:
    ```bash
    npm uninstall react-camera-pro
-   npm install react-camera-web
+   npm install react-webcam-pro
    ```
 
 2. **Update imports:**
    ```diff
    - import { Camera } from "react-camera-pro";
-   + import { Camera } from "react-camera-web";
+   + import { Camera } from "react-webcam-pro";
    ```
 
 3. That's it! The API is fully backward compatible. You can now optionally remove the `errorMessages` prop if you were only passing it to avoid TypeScript errors.
@@ -232,11 +232,11 @@ npm run typecheck
 
 We're actively working through the open issues inherited from the original `react-camera-pro` repository. Fixes are being rolled out steadily.
 
-**Need something fixed urgently?** [Create an issue](https://github.com/amareshsm/react-camera-web/issues/new) in our repo — it will be taken up on high priority and addressed quickly.
+**Need something fixed urgently?** [Create an issue](https://github.com/amareshsm/react-webcam-pro/issues/new) in our repo — it will be taken up on high priority and addressed quickly.
 
-- 🐛 **Report a bug:** [Open an issue](https://github.com/amareshsm/react-camera-web/issues/new)
-- 💡 **Request a feature:** [Open an issue](https://github.com/amareshsm/react-camera-web/issues/new)
-- 💬 **Discuss:** [GitHub Discussions](https://github.com/amareshsm/react-camera-web/discussions)
+- 🐛 **Report a bug:** [Open an issue](https://github.com/amareshsm/react-webcam-pro/issues/new)
+- 💡 **Request a feature:** [Open an issue](https://github.com/amareshsm/react-webcam-pro/issues/new)
+- 💬 **Discuss:** [GitHub Discussions](https://github.com/amareshsm/react-webcam-pro/discussions)
 
 ---
 
@@ -252,6 +252,6 @@ We're actively working through the open issues inherited from the original `reac
 
 MIT — See [LICENSE](./LICENSE) for details.
 
-[downloads-badge]: https://img.shields.io/npm/dw/react-camera-web.svg?style=flat-square
-[npm-badge]: https://img.shields.io/npm/v/react-camera-web?style=flat-square
-[license-badge]: https://img.shields.io/npm/l/react-camera-web?style=flat-square
+[downloads-badge]: https://img.shields.io/npm/dw/react-webcam-pro.svg?style=flat-square
+[npm-badge]: https://img.shields.io/npm/v/react-webcam-pro?style=flat-square
+[license-badge]: https://img.shields.io/npm/l/react-webcam-pro?style=flat-square

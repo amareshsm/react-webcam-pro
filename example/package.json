@@ -1,13 +1,13 @@
 {
-  "name": "react-camera-web-example",
+  "name": "react-webcam-pro-example",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://amareshsm.github.io/react-camera-web",
+  "homepage": "https://amareshsm.github.io/react-webcam-pro",
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-scripts": "^5.0.1",
-    "react-camera-web": "file:..",
+    "react-webcam-pro": "file:..",
     "styled-components": "^6.1.0"
   },
   "devDependencies": {

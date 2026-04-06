@@ -14,7 +14,7 @@ To use camera methods, create a ref and attach it to the `Camera` component:
 
 ```tsx
 import { useRef } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const App = () => {
   const cameraRef = useRef<CameraRef>(null);

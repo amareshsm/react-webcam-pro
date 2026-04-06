@@ -1,7 +1,7 @@
 {
-  "name": "react-camera-web",
+  "name": "react-webcam-pro",
   "description": "Universal Camera component for React. Designed with focus on Android, iOS cameras and standard webcams. Community-maintained fork of react-camera-pro.",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "keywords": [
@@ -18,12 +18,12 @@
     "react-camera"
   ],
   "repository": {
-    "url": "https://github.com/amareshsm/react-camera-web",
+    "url": "https://github.com/amareshsm/react-webcam-pro",
     "type": "git"
   },
-  "homepage": "https://github.com/amareshsm/react-camera-web#readme",
+  "homepage": "https://github.com/amareshsm/react-webcam-pro#readme",
   "bugs": {
-    "url": "https://github.com/amareshsm/react-camera-web/issues"
+    "url": "https://github.com/amareshsm/react-webcam-pro/issues"
   },
   "author": "Amaresh <amareshsm13@gmail.com>",
   "contributors": [

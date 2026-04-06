@@ -6,13 +6,13 @@ description: How to use the torch (flashlight) feature.
 
 # Torch / Flashlight
 
-`react-camera-web` supports controlling the device's flashlight (torch) through the camera stream.
+`react-webcam-pro` supports controlling the device's flashlight (torch) through the camera stream.
 
 ## Basic Usage
 
 ```tsx
 import { useRef, useState } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const App = () => {
   const cameraRef = useRef<CameraRef>(null);

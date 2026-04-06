@@ -3,15 +3,15 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'react-camera-web',
+  title: 'react-webcam-pro',
   tagline: 'Universal Camera component for React — iOS, Android & Webcams',
   favicon: 'img/favicon.ico',
 
   url: 'https://amareshsm.github.io',
-  baseUrl: '/react-camera-web/',
+  baseUrl: '/react-webcam-pro/',
 
   organizationName: 'amareshsm',
-  projectName: 'react-camera-web',
+  projectName: 'react-webcam-pro',
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
@@ -50,7 +50,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/amareshsm/react-camera-web/tree/master/docs/',
+          editUrl: 'https://github.com/amareshsm/react-webcam-pro/tree/master/docs/',
         },
         blog: false,
         theme: {
@@ -63,9 +63,9 @@ const config: Config = {
   themeConfig: {
     image: 'img/social-card.png',
     navbar: {
-      title: 'react-camera-web',
+      title: 'react-webcam-pro',
       logo: {
-        alt: 'react-camera-web Logo',
+        alt: 'react-webcam-pro Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -81,12 +81,12 @@ const config: Config = {
           position: 'left',
         },
         {
-          href: 'https://github.com/amareshsm/react-camera-web',
+          href: 'https://github.com/amareshsm/react-webcam-pro',
           label: 'GitHub',
           position: 'right',
         },
         {
-          href: 'https://www.npmjs.com/package/react-camera-web',
+          href: 'https://www.npmjs.com/package/react-webcam-pro',
           label: 'npm',
           position: 'right',
         },
@@ -117,11 +117,11 @@ const config: Config = {
           items: [
             {
               label: 'GitHub Issues',
-              href: 'https://github.com/amareshsm/react-camera-web/issues',
+              href: 'https://github.com/amareshsm/react-webcam-pro/issues',
             },
             {
               label: 'GitHub Discussions',
-              href: 'https://github.com/amareshsm/react-camera-web/discussions',
+              href: 'https://github.com/amareshsm/react-webcam-pro/discussions',
             },
           ],
         },
@@ -138,7 +138,7 @@ const config: Config = {
             },
             {
               label: 'npm',
-              href: 'https://www.npmjs.com/package/react-camera-web',
+              href: 'https://www.npmjs.com/package/react-webcam-pro',
             },
           ],
         },

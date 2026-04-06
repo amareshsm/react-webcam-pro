@@ -1,20 +1,20 @@
 ---
 sidebar_position: 1
 title: Changelog
-description: All releases of react-camera-web.
+description: All releases of react-webcam-pro.
 ---
 
 # Changelog
 
-All notable changes to `react-camera-web` are documented here.
+All notable changes to `react-webcam-pro` are documented here.
 
 This project follows [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [1.0.0](https://github.com/amareshsm/react-camera-web/releases/tag/v1.0.0) — 2026-04-06
+## [1.0.0](https://github.com/amareshsm/react-webcam-pro/releases/tag/v1.0.0) — 2026-04-06
 
-**The first stable release of `react-camera-web`** — a community-maintained fork of `react-camera-pro`.
+**The first stable release of `react-webcam-pro`** — a community-maintained fork of `react-camera-pro`.
 
 👉 [Full release notes →](/docs/releases/v1.0.0)
 
@@ -44,7 +44,7 @@ This project follows [Semantic Versioning](https://semver.org/).
 
 ### 📦 Dependencies
 
-| Dependency | Before (react-camera-pro) | After (react-camera-web) |
+| Dependency | Before (react-camera-pro) | After (react-webcam-pro) |
 |-----------|--------------------------|-------------------------|
 | `react` peer | `^18.3.1` | `^16.8.0 \|\| ^17 \|\| ^18 \|\| ^19` |
 | `react-dom` peer | `^18.3.1` | `^16.8.0 \|\| ^17 \|\| ^18 \|\| ^19` |

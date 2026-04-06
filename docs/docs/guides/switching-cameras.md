@@ -6,13 +6,13 @@ description: How to switch between front and back cameras.
 
 # Switching Cameras
 
-Most mobile devices have at least two cameras — front (user) and back (environment). `react-camera-web` makes it easy to switch between them.
+Most mobile devices have at least two cameras — front (user) and back (environment). `react-webcam-pro` makes it easy to switch between them.
 
 ## Basic Camera Switching
 
 ```tsx
 import { useRef, useState } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const App = () => {
   const cameraRef = useRef<CameraRef>(null);

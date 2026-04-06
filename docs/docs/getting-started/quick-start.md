@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: Quick Start
-description: Build a working camera app in 5 minutes with react-camera-web.
+description: Build a working camera app in 5 minutes with react-webcam-pro.
 ---
 
 # Quick Start
@@ -14,7 +14,7 @@ The simplest possible camera component:
 
 ```tsx
 import React, { useRef, useState } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const App = () => {
   const cameraRef = useRef<CameraRef>(null);
@@ -53,7 +53,7 @@ Here's a more complete example with camera switching, torch control, and device 
 
 ```tsx
 import React, { useRef, useState, useEffect } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const App = () => {
   const cameraRef = useRef<CameraRef>(null);

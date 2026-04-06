@@ -1,12 +1,12 @@
 ---
 sidebar_position: 3
 title: Types
-description: Complete TypeScript type definitions exported by react-camera-web.
+description: Complete TypeScript type definitions exported by react-webcam-pro.
 ---
 
 # Types
 
-`react-camera-web` is written in TypeScript and exports all its types. This page documents every exported type.
+`react-webcam-pro` is written in TypeScript and exports all its types. This page documents every exported type.
 
 ## Importing Types
 
@@ -16,7 +16,7 @@ import {
   CameraRef,
   CameraProps,
   CameraType,      // deprecated alias — use CameraRef
-} from 'react-camera-web';
+} from 'react-webcam-pro';
 ```
 
 ---
@@ -39,7 +39,7 @@ interface CameraRef {
 
 ```tsx
 import { useRef } from 'react';
-import { Camera, CameraRef } from 'react-camera-web';
+import { Camera, CameraRef } from 'react-webcam-pro';
 
 const cameraRef = useRef<CameraRef>(null);
 
@@ -60,9 +60,9 @@ type CameraType = CameraRef;
 If you're migrating from `react-camera-pro`, your existing `useRef<CameraType>(null)` code will continue to work. However, we recommend updating to `CameraRef` for clarity.
 
 ```diff
-- import { CameraType } from 'react-camera-web';
+- import { CameraType } from 'react-webcam-pro';
 - const camera = useRef<CameraType>(null);
-+ import { CameraRef } from 'react-camera-web';
++ import { CameraRef } from 'react-webcam-pro';
 + const camera = useRef<CameraRef>(null);
 ```
 

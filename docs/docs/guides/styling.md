@@ -6,7 +6,7 @@ description: How to style the camera component using className, style, and style
 
 # Styling
 
-`react-camera-web` provides multiple ways to style the camera container.
+`react-webcam-pro` provides multiple ways to style the camera container.
 
 ## Using `className`
 
@@ -42,11 +42,11 @@ Apply inline styles directly:
 
 ## Using styled-components
 
-Since `react-camera-web` itself uses styled-components internally, you can wrap the Camera in your own styled component:
+Since `react-webcam-pro` itself uses styled-components internally, you can wrap the Camera in your own styled component:
 
 ```tsx
 import styled from 'styled-components';
-import { Camera } from 'react-camera-web';
+import { Camera } from 'react-webcam-pro';
 
 const StyledCamera = styled(Camera)`
   border-radius: 16px;
@@ -122,5 +122,5 @@ A popular pattern is a circular or rounded camera:
 ```
 
 :::info New in v1.0.0
-The `className` and `style` props are new in `react-camera-web`. They were one of the most [requested features](https://github.com/purple-technology/react-camera-pro/issues/47) in the original package.
+The `className` and `style` props are new in `react-webcam-pro`. They were one of the most [requested features](https://github.com/purple-technology/react-camera-pro/issues/47) in the original package.
 :::

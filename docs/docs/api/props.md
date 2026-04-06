@@ -9,7 +9,7 @@ description: Complete reference of all props accepted by the Camera component.
 The `Camera` component accepts the following props. **All props are optional** — the component works out of the box with zero configuration.
 
 ```tsx
-import { Camera } from 'react-camera-web';
+import { Camera } from 'react-webcam-pro';
 
 // All defaults — just works!
 <Camera ref={cameraRef} />
@@ -185,7 +185,7 @@ interface ErrorMessages {
 ```
 
 :::tip Previously Required
-In `react-camera-pro`, the `errorMessages` prop was **required**, which forced users to pass all four messages even when using defaults. In `react-camera-web`, it's fully optional.
+In `react-camera-pro`, the `errorMessages` prop was **required**, which forced users to pass all four messages even when using defaults. In `react-webcam-pro`, it's fully optional.
 :::
 
 ---

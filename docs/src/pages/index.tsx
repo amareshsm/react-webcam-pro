@@ -10,7 +10,7 @@ import styles from './index.module.css';
 
 function CopyInstallCommand() {
   const [copied, setCopied] = useState(false);
-  const command = 'npm install react-camera-web';
+  const command = 'npm install react-webcam-pro';
 
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(command).then(() => {
@@ -189,7 +189,7 @@ function HomepageFeatures() {
       <div className="container">
         <div className="text--center" style={{ marginBottom: '2.5rem' }}>
           <Heading as="h2" className={styles.sectionTitle}>
-            Why react-camera-web?
+            Why react-webcam-pro?
           </Heading>
           <p className={styles.sectionSubtitle}>
             Everything you need to build camera experiences in React
@@ -205,7 +205,7 @@ function HomepageFeatures() {
   );
 }
 
-const quickStartCode = `import { Camera } from 'react-camera-web';
+const quickStartCode = `import { Camera } from 'react-webcam-pro';
 import { useRef } from 'react';
 
 const App = () => {
@@ -267,7 +267,7 @@ function HomepageCommunity() {
             We're actively working through the open issues inherited from the
             original <code>react-camera-pro</code> repository. If you encounter a
             bug or need a feature urgently, please{' '}
-            <Link href="https://github.com/amareshsm/react-camera-web/issues/new">
+            <Link href="https://github.com/amareshsm/react-webcam-pro/issues/new">
               create an issue
             </Link>{' '}
             in our repo — it will be prioritized and addressed quickly.
@@ -275,13 +275,13 @@ function HomepageCommunity() {
           <div className={styles.communityButtons}>
             <Link
               className={clsx('button button--lg', styles.btnSecondary)}
-              href="https://github.com/amareshsm/react-camera-web/issues/new"
+              href="https://github.com/amareshsm/react-webcam-pro/issues/new"
             >
               🐛 Report an Issue
             </Link>
             <Link
               className={clsx('button button--lg', styles.btnOutline)}
-              href="https://github.com/amareshsm/react-camera-web"
+              href="https://github.com/amareshsm/react-webcam-pro"
             >
               ⭐ Star on GitHub
             </Link>

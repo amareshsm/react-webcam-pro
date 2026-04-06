@@ -2,7 +2,7 @@
  * Backward Compatibility Tests
  *
  * These tests verify that existing react-camera-pro users can switch to
- * react-camera-web by simply changing the import path, with ZERO code changes.
+ * react-webcam-pro by simply changing the import path, with ZERO code changes.
  *
  * Every test here simulates a real-world usage pattern from react-camera-pro.
  */
