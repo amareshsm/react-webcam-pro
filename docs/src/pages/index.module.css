@@ -1,0 +1,404 @@
+/* ─── Hero ─── */
+.heroBanner {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(160deg, #eff6ff 0%, #f0f9ff 40%, #faf5ff 100%);
+}
+
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(
+    160deg,
+    #0f172a 0%,
+    #1e1b4b 50%,
+    #0c0a09 100%
+  );
+}
+
+.heroGlow {
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.12) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+[data-theme='dark'] .heroGlow {
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.1) 0%,
+    transparent 70%
+  );
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  margin-bottom: 1.25rem;
+}
+
+[data-theme='dark'] .heroBadge {
+  background: rgba(96, 165, 250, 0.1);
+  color: #93bbfd;
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+.heroTitle {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme='dark'] .heroTitle {
+  background: linear-gradient(135deg, #93bbfd 0%, #60a5fa 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSubtitle {
+  color: #475569 !important;
+}
+
+[data-theme='dark'] .heroSubtitle {
+  color: #94a3b8 !important;
+}
+
+.heroInstall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem 0.55rem 1.25rem;
+  border-radius: 10px;
+  font-family: 'SF Mono', 'Fira Code', 'Fira Mono', Menlo, Consolas, monospace;
+  font-size: 0.88rem;
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: var(--ifm-font-color-base);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.heroInstall:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+[data-theme='dark'] .heroInstall {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme='dark'] .heroInstall:hover {
+  border-color: var(--ifm-color-primary);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.heroInstallCode {
+  background: none;
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  user-select: all;
+}
+
+.heroInstallPrompt {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  margin-right: 0.25rem;
+  user-select: none;
+}
+
+.heroInstallCopy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: var(--ifm-color-content-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.heroInstallCopy:hover {
+  color: var(--ifm-color-primary);
+  background: rgba(37, 99, 235, 0.08);
+}
+
+.heroLogo {
+  flex-shrink: 0;
+}
+
+.heroTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ─── Buttons ─── */
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.btnPrimary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  color: #fff !important;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btnSecondary {
+  background: rgba(37, 99, 235, 0.06);
+  color: #2563eb !important;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.btnSecondary:hover {
+  background: rgba(37, 99, 235, 0.1);
+  color: #1d4ed8 !important;
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+[data-theme='dark'] .btnSecondary {
+  background: rgba(96, 165, 250, 0.08);
+  color: #93bbfd !important;
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+[data-theme='dark'] .btnSecondary:hover {
+  background: rgba(96, 165, 250, 0.15);
+  color: #bfdbfe !important;
+}
+
+.btnOutline {
+  background: transparent;
+  color: var(--ifm-font-color-base) !important;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.btnOutline:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme='dark'] .btnOutline {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme='dark'] .btnOutline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Hero Stats ─── */
+.heroStats {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+[data-theme='dark'] .heroStats {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.statValue {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ifm-color-primary);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--ifm-color-content-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.statDivider {
+  width: 1px;
+  height: 28px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .statDivider {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ─── Section headings ─── */
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.1rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ─── Features ─── */
+.features {
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.featureCard {
+  margin-bottom: 1.5rem;
+}
+
+.featureEmoji {
+  font-size: 2.75rem;
+  margin-bottom: 0.25rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.featureTag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.15em 0.55em;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+/* ─── Quick Start ─── */
+.quickStart {
+  padding: 5rem 0;
+  background: var(--ifm-background-surface-color);
+}
+
+.codeBlock {
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] .codeBlock {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Community ─── */
+.community {
+  padding: 5rem 0;
+  background: linear-gradient(160deg, #f0f9ff 0%, #eff6ff 50%, #faf5ff 100%);
+}
+
+[data-theme='dark'] .community {
+  background: linear-gradient(
+    160deg,
+    rgba(37, 99, 235, 0.04) 0%,
+    rgba(124, 58, 237, 0.04) 100%
+  );
+}
+
+.communityText {
+  color: var(--ifm-color-content-secondary);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0.75rem auto 2rem;
+  line-height: 1.7;
+}
+
+.communityButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+/* ─── Responsive ─── */
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 1rem 3rem;
+  }
+
+  .heroTitleRow {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .heroLogo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .heroStats {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .statDivider {
+    width: 40px;
+    height: 1px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .communityButtons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,161 @@
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const config: Config = {
+  title: 'react-camera-web',
+  tagline: 'Universal Camera component for React — iOS, Android & Webcams',
+  favicon: 'img/favicon.ico',
+
+  url: 'https://amareshsm.github.io',
+  baseUrl: '/react-camera-web/',
+
+  organizationName: 'amareshsm',
+  projectName: 'react-camera-web',
+
+  onBrokenLinks: 'throw',
+  onBrokenAnchors: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
+
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
+
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        language: ['en'],
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+        docsRouteBasePath: '/docs',
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 10,
+        searchResultContextMaxLength: 50,
+      },
+    ],
+  ],
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: {
+          sidebarPath: './sidebars.ts',
+          editUrl: 'https://github.com/amareshsm/react-camera-web/tree/master/docs/',
+        },
+        blog: false,
+        theme: {
+          customCss: './src/css/custom.css',
+        },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  themeConfig: {
+    image: 'img/social-card.png',
+    navbar: {
+      title: 'react-camera-web',
+      logo: {
+        alt: 'react-camera-web Logo',
+        src: 'img/logo.svg',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'docsSidebar',
+          position: 'left',
+          label: 'Docs',
+        },
+        {
+          to: '/docs/releases/changelog',
+          label: 'Releases',
+          position: 'left',
+        },
+        {
+          href: 'https://github.com/amareshsm/react-camera-web',
+          label: 'GitHub',
+          position: 'right',
+        },
+        {
+          href: 'https://www.npmjs.com/package/react-camera-web',
+          label: 'npm',
+          position: 'right',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Docs',
+          items: [
+            {
+              label: 'Getting Started',
+              to: '/docs/getting-started/installation',
+            },
+            {
+              label: 'API Reference',
+              to: '/docs/api/props',
+            },
+            {
+              label: 'Guides',
+              to: '/docs/guides/switching-cameras',
+            },
+          ],
+        },
+        {
+          title: 'Community',
+          items: [
+            {
+              label: 'GitHub Issues',
+              href: 'https://github.com/amareshsm/react-camera-web/issues',
+            },
+            {
+              label: 'GitHub Discussions',
+              href: 'https://github.com/amareshsm/react-camera-web/discussions',
+            },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'Releases',
+              to: '/docs/releases/changelog',
+            },
+            {
+              label: 'Migration Guide',
+              to: '/docs/migration/from-react-camera-pro',
+            },
+            {
+              label: 'npm',
+              href: 'https://www.npmjs.com/package/react-camera-web',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Amaresh. Built with Docusaurus.`,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'diff', 'json', 'tsx', 'typescript'],
+    },
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;
